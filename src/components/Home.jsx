@@ -9,17 +9,13 @@ export default function Home(){
       useEffect(() => {    console.log('effect')
                 blogsService.getAll().then(initialBlogs =>setBlogs(initialBlogs))           
             }, [])
-    blogsService.getBlog(1).then(blog=>console.log(blog))
-    console.log(blogs)
     return(
         <>
             <div><Link to="/create">New Post</Link></div>
             <div>
                 {
                     blogs.map(blog=>{
-                     return(<>
-                        <BlogThumb b={blog}></BlogThumb>
-                        </>   
+                     return(                        <BlogThumb key={blog.slug} b={blog} ></BlogThumb>
                     )
                     })
                 }
