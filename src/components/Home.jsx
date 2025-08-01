@@ -8,7 +8,7 @@ export default function Home(){
     const [blogs,setBlogs] = useState([])
       useEffect(() => {    console.log('effect')
                 blogsService.getAll().then(initialBlogs =>setBlogs(initialBlogs))           
-            }, [])
+            })
     return(
         <>
             <div><Link to="/create">New Post</Link></div>
